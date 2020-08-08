@@ -364,7 +364,11 @@ static struct mk_list *parse_local_resource_id_to_list(char *local_resource_id, 
 }
 
 /*
+<<<<<<< HEAD
  *    extract_local_resource_id():
+=======
+ *    process_local_resource_id():
+>>>>>>> origin/issue-2365
  *  - extract the value from "logging.googleapis.com/local_resource_id" field
  *  - if local_resource_id is missing from the payLoad, use the tag of the log
  */
@@ -680,12 +684,15 @@ static int cb_stackdriver_init(struct flb_output_instance *ins,
         if (ret == -1) {
             return -1;
         }
+<<<<<<< HEAD
     }
 
     /* Validate project_id */
     if (!ctx->project_id) {
         flb_plg_error(ctx->ins, "property 'project_id' is not set");
         return -1;
+=======
+>>>>>>> origin/issue-2365
     }
 
     return 0;
@@ -821,6 +828,7 @@ static int get_stream(msgpack_object_map map)
     return STREAM_UNKNOWN;
 }
 
+<<<<<<< HEAD
 static insert_id_status validate_insert_id(msgpack_object * insert_id_value,
                                            const msgpack_object * obj)
 {
@@ -859,6 +867,10 @@ static int pack_json_payload(int insert_id_extracted,
                              int http_request_extra_size,
                              timestamp_status tms_status,
                              msgpack_packer *mp_pck, msgpack_object *obj,
+=======
+static int pack_json_payload(int operation_extracted, int operation_extra_size,
+                             msgpack_packer* mp_pck, msgpack_object *obj,
+>>>>>>> origin/issue-2365
                              struct flb_stackdriver *ctx)
 {
     /* Specified fields include local_resource_id, operation, sourceLocation ... */

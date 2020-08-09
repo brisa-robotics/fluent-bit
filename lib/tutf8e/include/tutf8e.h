@@ -3,7 +3,7 @@
 #define TUTF8E_H
 
 #include <stddef.h>  /* size_t */
-#include <stdint.h>  /* uint16_t */
+#include_next <stdint.h>  /* uint16_t */
 
 /* Internal API */
 
